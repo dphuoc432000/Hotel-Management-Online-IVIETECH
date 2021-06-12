@@ -1,20 +1,22 @@
 package my.project.hotelmanagement.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
+@Data
 @Table(name = "room")
 public class RoomEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer roomID;
     @NotNull
-    private Integer roomNumber;
-    @NotNull
     private Double price;
     @NotNull
+    private Integer roomNumber;
     private Integer size;
     private String mainImage;
     private String subImage1;
@@ -131,4 +133,67 @@ public class RoomEntity {
                 ", bookingDetailEntitySet=" + bookingDetailEntitySet +
                 '}';
     }
+
+//    public RoomEntity(RoomEntityBuilder roomEntityBuilder){
+//        this.roomNumber = roomEntityBuilder.roomNumber;
+//        this.price = roomEntityBuilder.price;
+//        this.size = roomEntityBuilder.size;
+//        this.mainImage = roomEntityBuilder.mainImage;
+//        this.subImage1 = roomEntityBuilder.subImage1;
+//        this.subImage2 = roomEntityBuilder.subImage2;
+//        this.subImage3 = roomEntityBuilder.subImage3;
+//        this.description = roomEntityBuilder.description;
+//        this.typeRoomEntity = roomEntityBuilder.typeRoomEntity;
+//    }
+//    public RoomEntity(){}
+//    public static class RoomEntityBuilder{
+//        private final Integer roomNumber;
+//        private Double price;
+//        private Integer size;
+//        private String mainImage;
+//        private String subImage1;
+//        private String subImage2;
+//        private String subImage3;
+//        private String description;
+//        private TypeRoomEntity typeRoomEntity;
+//
+//        public RoomEntityBuilder(Integer roomNumber) {
+//            this.roomNumber = roomNumber;
+//        }
+//        public RoomEntityBuilder price(Double price){
+//            this.price = price;
+//            return this;
+//        }
+//        public RoomEntityBuilder size(Integer size){
+//            this.size = size;
+//            return this;
+//        }
+//        public RoomEntityBuilder mainImage(String mainImage){
+//            this.mainImage = mainImage;
+//            return this;
+//        }
+//        public RoomEntityBuilder subImage1( String subImage1){
+//            this.subImage1 = subImage1;
+//            return this;
+//        }
+//        public RoomEntityBuilder subImage2(String subImage2){
+//            this.subImage2 = subImage2;
+//            return this;
+//        }
+//        public RoomEntityBuilder subImage3(String subImage3){
+//            this.subImage3 = subImage3;
+//            return this;
+//        }
+//        public RoomEntityBuilder description(String description){
+//            this.description = description;
+//            return this;
+//        }
+//        public RoomEntityBuilder typeRoomEntity(TypeRoomEntity typeRoomEntity){
+//            this.typeRoomEntity = typeRoomEntity;
+//            return this;
+//        }
+//        public RoomEntity build(){
+//            return new RoomEntity(this);
+//        }
+//    }
 }

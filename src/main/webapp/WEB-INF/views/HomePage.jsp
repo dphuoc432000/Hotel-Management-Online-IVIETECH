@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    Hello
+    <jsp:include page="header.jsp"/>
 </body>
 </html>
