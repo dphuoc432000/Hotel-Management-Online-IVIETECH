@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/type_room")
+@RequestMapping("/admin/type_room")
 public class Setup_Type_Room_Controller {
     @Autowired
     TypeRoomService typeRoomServiceIF;
@@ -31,9 +31,9 @@ public class Setup_Type_Room_Controller {
     public String saveTypeRoom(@Validated TypeRoomEntity typeRoomEntity, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("typeRoomEntity", typeRoomEntity);
-            return "redirect:/type_room/setup_type_room";
+            return "redirect:/admin/type_room/setup_type_room";
         }
         typeRoomServiceIF.saveTypeRoom(typeRoomEntity);
-        return "redirect:/type_room/setup_type_room";
+        return "redirect:/admin/type_room/setup_type_room";
     }
 }

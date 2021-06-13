@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoomServiceIF implements RoomService {
@@ -13,18 +14,18 @@ public class RoomServiceIF implements RoomService {
     RoomRepository roomRepository;
 
     @Override
-    public void saveRoom(RoomEntity roomEntity) {
-        roomRepository.save(roomEntity);
+    public RoomEntity saveRoom(RoomEntity roomEntity) {
+        return roomRepository.save(roomEntity);
     }
 
     @Override
-    public void updateRoom(RoomEntity roomEntity) {
-
+    public RoomEntity updateRoom(RoomEntity roomEntity) {
+        return roomRepository.save(roomEntity);
     }
 
     @Override
     public void deleteRoom(RoomEntity roomEntity) {
-
+        roomRepository.delete(roomEntity);
     }
 
     @Override
@@ -35,6 +36,9 @@ public class RoomServiceIF implements RoomService {
 
     @Override
     public RoomEntity getRoomByID(int id) {
-        return null;
+        Optional<RoomEntity> opt = roomRepository.findById(id);
+        if (opt.isPresent())
+            return opt.get();
+        return  null;
     }
 }

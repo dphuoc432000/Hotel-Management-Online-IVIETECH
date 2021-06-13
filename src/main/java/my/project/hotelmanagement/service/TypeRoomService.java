@@ -7,4 +7,5 @@ import java.util.List;
 public interface TypeRoomService {
     public void saveTypeRoom(TypeRoomEntity typeRoomEntity);
     public List<TypeRoomEntity> getAllTypeRoom();
+    public TypeRoomEntity getTypeRoomByRoomID(int id);
 }
