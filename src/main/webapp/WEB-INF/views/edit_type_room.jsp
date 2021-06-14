@@ -12,40 +12,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="<c:url value="/resources/setup-room-type-service.css" />">
+    <link rel="stylesheet" href="<c:url value="/resources/edit-room-type-service.css" />">
 </head>
 <body>
     <jsp:include page="header.jsp"/>
     <main>
-        <div class="btn-container">
-            <button onclick="showform()" class="btn btn-them btn-warning">Thêm</button>
-        </div>
-        <div class="table-container">
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th colspan="2">Action</th>
-                </tr>
-                <c:forEach items="${listTypeRoomEntityList}" var="typeRoomEntity">
-                    <tr>
-                        <td>${typeRoomEntity.getTypeRoomID()}</td>
-                        <td>${typeRoomEntity.getTypeRoomName()}</td>
-                        <td><a href="<c:url value="/admin/type_room/edit_type_room?typeRoomID=${typeRoomEntity.getTypeRoomID()}"/>">Edit</a></td>
-                        <td><a href="<c:url value="/admin/type_room/delete_type_room?typeRoomID=${typeRoomEntity.getTypeRoomID()}"/>">Delete</a></td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </div>
-        <div class="layout" onclick="offshowform()"></div>
-        <div class="show-form">
+        <div class="left">
             <div class="form-container">
-                <form:form method="post" action="save_type_room" modelAttribute="typeRoomEntity">
+                <form:form method="post" action="save_edit_type_room" modelAttribute="typeRoomEntity">
                     <table>
-                        <tr>
-                            <td><form:label path="typeRoomName">Type Room Name</form:label></td>
+                        <tr style="display: none">
+                            <td><form:label path="typeRoomID">ID</form:label></td>
                             <td>
-                                <form:input type="text" name="typeRoomName" id="typeRoomName" path="typeRoomName"/>
+                                <form:input type="text" name="typeRoomID" id="typeRoomID" value="${typeRoomEntity.getTypeRoomID()}" path="typeRoomID"/>
+                                <form:errors path="typeRoomID" cssClass="error" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><form:label path="typeRoomName">Type name</form:label></td>
+                            <td>
+                                <form:input type="text" name="typeRoomName" id="typeRoomName" value="${typeRoomEntity.getTypeRoomName()}" path="typeRoomName"/>
                                 <form:errors path="typeRoomName" cssClass="error" />
                             </td>
                         </tr>
@@ -59,9 +45,23 @@
                 </form:form>
             </div>
         </div>
+        <div class="right">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <td>${typeRoomEntity.getTypeRoomID()}</td>
+                </tr>
+                <tr>
+                    <th>Type room name</th>
+                    <td>${typeRoomEntity.getTypeRoomName()}</td>
+                </tr>
+
+            </table>
+            <a href="<c:url value="/admin/type_room/setup_type_room"/>" class="return">Return a page</a>
+        </div>
     </main>
 
-    <script>${scriptError}</script>
-    <script src="<c:url value="/resources/setup_service.js"/>"></script>
+
+
 </body>
 </html>

@@ -25,11 +25,26 @@ public class TypeRoomServiceIF implements TypeRoomService{
     public List<TypeRoomEntity> getAllTypeRoom() {
         return (List<TypeRoomEntity>) typeRoomRepository.findAll();
     }
+
+    @Override
+    public TypeRoomEntity getTypeRoomByID(int id) {
+        Optional<TypeRoomEntity> opt = typeRoomRepository.findById(id);;
+        return opt.isPresent()? opt.get() : null;
+    }
+
     @Override
     public TypeRoomEntity getTypeRoomByRoomID(int id){
         List<RoomEntity> list = roomRepository.getTypeRoomByRoomID(id);
         int typeRoomByRoomID = list.get(0).getTypeRoomEntity().getTypeRoomID();
         Optional<TypeRoomEntity> opt =  typeRoomRepository.findById(typeRoomByRoomID);
         return opt.isPresent()? opt.get() : null;
+    }
+    @Override
+    public void deleteTypeRoom(TypeRoomEntity typeRoomEntity){
+        typeRoomRepository.delete(typeRoomEntity);
+    }
+    @Override
+    public TypeRoomEntity upadteTypeRoom(TypeRoomEntity typeRoomEntity){
+        return typeRoomRepository.save(typeRoomEntity);
     }
 }

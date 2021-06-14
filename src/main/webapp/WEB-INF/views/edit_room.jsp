@@ -78,17 +78,17 @@
                                 <form:errors path="description" cssClass="error" />
                             </td>
                         </tr>
-<%--                        <tr>--%>
-<%--                            <td><form:label path="typeRoomEntity">Type room</form:label></td>--%>
-<%--                            <td>--%>
-<%--                                <form:select id="typeRoomEntity" name="typeRoomEntity"  path="typeRoomEntity">&ndash;%&gt;--%>
-<%--                                    <form:option value="">Choose a type room</form:option>--%>
-<%--                                    <c:forEach var="typeRoomEntity" items="${listTypeRoomEntityList}">--%>
-<%--                                        <form:option value="${typeRoomEntity.getTypeRoomID()}">${typeRoomEntity.getTypeRoomName()}</form:option>--%>
-<%--                                    </c:forEach>--%>
-<%--                                </form:select>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
+                        <tr>
+                            <td><form:label path="typeRoomEntity">Type room</form:label></td>
+                            <td>
+                                <form:select id="typeRoomEntity" name="typeRoomEntity"  path="typeRoomEntity">--%>
+                                    <form:option value="">Choose a type room</form:option>
+                                    <c:forEach var="typeRoomEntity" items="${listTypeRoomEntityList}">
+                                        <form:option value="${typeRoomEntity.getTypeRoomID()}" >${typeRoomEntity.getTypeRoomName()}</form:option>
+                                    </c:forEach>
+                                </form:select>
+                            </td>
+                        </tr>
                         <tr>
                             <td></td>
                             <td>

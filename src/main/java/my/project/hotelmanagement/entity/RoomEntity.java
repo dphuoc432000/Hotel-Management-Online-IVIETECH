@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
-@Data
 @Table(name = "room")
 public class RoomEntity {
     @Id
@@ -117,22 +116,22 @@ public class RoomEntity {
         this.bookingDetailEntitySet = bookingDetailEntitySet;
     }
 
-    @Override
-    public String toString() {
-        return "RoomEntity{" +
-                "roomID=" + roomID +
-                ", roomNumber=" + roomNumber +
-                ", price=" + price +
-                ", size=" + size +
-                ", mainImage='" + mainImage + '\'' +
-                ", subImage1='" + subImage1 + '\'' +
-                ", subImage2='" + subImage2 + '\'' +
-                ", subImage3='" + subImage3 + '\'' +
-                ", description='" + description + '\'' +
-                ", typeRoomEntity=" + typeRoomEntity +
-                ", bookingDetailEntitySet=" + bookingDetailEntitySet +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "RoomEntity{" +
+//                "roomID=" + roomID +
+//                ", roomNumber=" + roomNumber +
+//                ", price=" + price +
+//                ", size=" + size +
+//                ", mainImage='" + mainImage + '\'' +
+//                ", subImage1='" + subImage1 + '\'' +
+//                ", subImage2='" + subImage2 + '\'' +
+//                ", subImage3='" + subImage3 + '\'' +
+//                ", description='" + description + '\'' +
+//                ", typeRoomEntity=" + typeRoomEntity +
+//                ", bookingDetailEntitySet=" + bookingDetailEntitySet +
+//                '}';
+//    }
 
 //    public RoomEntity(RoomEntityBuilder roomEntityBuilder){
 //        this.roomNumber = roomEntityBuilder.roomNumber;

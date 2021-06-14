@@ -39,12 +39,12 @@ public class TypeRoomEntity {
         this.roomEntitySet = roomEntitySet;
     }
 
-    @Override
-    public String toString() {
-        return "TypeRoomEntity{" +
-                "typeRoomID=" + typeRoomID +
-                ", typeRoomName='" + typeRoomName + '\'' +
-                ", roomEntitySet=" + roomEntitySet +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "TypeRoomEntity{" +
+//                "typeRoomID=" + typeRoomID +
+//                ", typeRoomName='" + typeRoomName + '\'' +
+//                ", roomEntitySet=" + roomEntitySet +
+//                '}';
+//    }
 }
